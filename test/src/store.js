@@ -8,18 +8,18 @@ const isMember = sessionStorage.getItem('member') !== null
 
 export default new Vuex.Store({
   state: {
-    isMember : isMember,
+    isMember: isMember,
     member: member
   },
   mutations: {
-    login (state, data) {
+    login(state, data) {
       state.isMember = true
       state.member = data
       sessionStorage.setItem('member', JSON.stringify(data))
     },
-    logout (state) { 
+    logout(state) {
       state.isMember = false
-      state.member = {}
+      state.mebmer = {}
       sessionStorage.clear()
     }
   }
