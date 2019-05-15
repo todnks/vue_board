@@ -16,6 +16,14 @@ export default new Router({
       path: '/join',
       name: 'join',
       component: () => import('./components/member/join')
+    },
+    {
+      path: '/board/list',
+      component: () => import('./components/board/list')
+    },
+    {
+      path: '/board/write',
+      component: () => import('./components/board/write')
     }
   ]
 })

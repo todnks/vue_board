@@ -7,8 +7,9 @@
             <ul class="header__list">
                 <div v-if="this.$store.state.isMember">
                     <button @click="logout">로그아웃</button>
+                    <router-link to="/board/list" tag="p">게시판리스트</router-link>
                 </div>
-                <div v-else>
+                <div v-else> 
                 <router-link class="header__item" tag="li" to="/join">회원가입</router-link>
                 <router-link class="header__item" tag="li" to="/login">로그인</router-link>
                 </div>

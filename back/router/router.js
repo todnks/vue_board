@@ -38,4 +38,22 @@ module.exports = (app,fs) => {
             }
         })
     })
+
+    app.get('/board', (req,res) =>{
+        const sql = 'select * from board order by date desc'
+        con.query(sql,(err,results) => {
+            res.json(results)
+        })
+    })
+    
+    app.post('/board/write', (req,res) =>{
+        const writer = req.body.writer
+        const subject = req.body.subject
+        const content = req.body.content
+        const sql = `insert into board set writer='${writer}', subject='${subject}',content='${content}',date=now()`
+        console.log(sql)
+        con.query(sql,(err,results) =>{
+            res.json(results)
+        })
+    })
 }
