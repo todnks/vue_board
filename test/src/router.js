@@ -18,12 +18,16 @@ export default new Router({
       component: () => import('./components/member/join')
     },
     {
-      path: '/board/list',
+      path: '/board',
       component: () => import('./components/board/list')
     },
     {
       path: '/board/write',
       component: () => import('./components/board/write')
+    },
+    {
+      path: '/board/view/:idx',
+      component: () => import('./components/board/view')
     }
   ]
 })

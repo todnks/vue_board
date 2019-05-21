@@ -20,7 +20,7 @@ export default {
             const url = 'http://localhost:3000/member/login'
             const frm = e.target
             const _this = this
-            fetch(url , {
+            fetch(url ,{
                 method: 'POST',
                 body : JSON.stringify({
                     id: frm.id.value,

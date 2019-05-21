@@ -2,7 +2,7 @@
     <div>
         <h1>게시판 목록</h1>
         <div v-if="this.$store.state.isMember">
-            <router-link to="./write" tag="p">게시판작성</router-link>
+            <router-link to="board/write" tag="p">게시판작성</router-link>
         </div>
         <ul v-if="this.list.length > 0">
             <li v-for="data in list" :key="data.idx">

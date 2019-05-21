@@ -23,7 +23,7 @@ export default {
       const url = 'http://localhost:3000/member/join'
       const frm = e.target
       const _this = this
-      fetch(url, {
+      fetch(url,{
         method: 'POST',
         body : JSON.stringify({
           id : frm.id.value,
@@ -31,7 +31,7 @@ export default {
           name : frm.name.value
         }),
         headers: new Headers({
-          'Content-Type': 'application/json'
+          'Content-Type':'application/json'
         })
       })
         .then(res => res.json())
