@@ -1,4 +1,4 @@
-<template>
+  <template>
     <div>
         <h1>게시판 목록</h1>
         <div v-if="this.$store.state.isMember">
@@ -7,7 +7,7 @@
         <ul v-if="this.list.length > 0">
             <li v-for="data in list" :key="data.idx">
                 {{data.idx}} /
-                <router-link :to="`./view/${data.idx}`">{{data.subject}}</router-link> /
+                <router-link :to="`./board/view/${data.idx}`">{{data.subject}}</router-link> /
                 {{data.writer}}
                 {{data.date}}
             </li>
@@ -38,7 +38,6 @@ export default {
         .catch(error => {
             console.log(error)
         })
-        console.log(this.list)
     }
 }
 </script>

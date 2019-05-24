@@ -26,6 +26,10 @@ export default new Router({
       component: () => import('./components/board/write')
     },
     {
+      path: '/board/update/:idx',
+      component: () => import('./components/board/update')
+    },
+    {
       path: '/board/view/:idx',
       component: () => import('./components/board/view')
     }

@@ -19,7 +19,7 @@ module.exports = (app,fs) => {
         const id = req.body.id
         const pw = req.body.pw
         const sql = `select * from member where id=? and pw=?`
-            con.query(sql, [id, pw], (err, results,field)=>{
+            con.query(sql, [id, pw], (err,results,field)=>{
                 console.log(results)
                 res.json(results)
             })
@@ -57,13 +57,31 @@ module.exports = (app,fs) => {
         })
     })
 
-    app.get('/board/list/:idx', (req,res) =>{
+    app.get('/board/view/:idx', (req, res) =>{
         const idx = req.params.idx
         const sql = `select * from board where idx=?`
         con.query(sql,[idx],(err,results) =>{
+                console.log(results)
                 res.json(results)
         })
-        con.query(`update board set hit=hit+1 where idx=?`,[idx])
+    })
+    
+    app.post('/board/update/:idx', (req,res) =>{
+        const idx = req.params.idx
+        const subject = req.body.subject
+        const content = req.body.content
+        const sql = `UPDATE board set subject=?, content=? where idx=?`
+        con.query(sql,[subject,content,idx],(err,results) => {
+            res.json(results)
+        })
     })
 
+    app.post('/board/delete', (req,res) =>{
+        const idx = req.body.idx
+        const sql = `delete from board where idx=?`
+        con.query(sql,[idx],(err,results)=>{
+            console.log(results)
+            res.json(results)
+        })
+    })
 }
